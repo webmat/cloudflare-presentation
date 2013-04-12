@@ -109,13 +109,13 @@ Browser Support
 
     So, you'd expect this to work on all browsers, right?
 
-✔Safari  
+✔Safari
 ✔Firebox
 
     No. Right now Preston has only been tested succesfully on the latest Safari
     and Firefox.
 
-Chrome  
+Chrome
 - HTTP only
 
     Notably, it doesn't work on Chrome with local files, although it works if you
