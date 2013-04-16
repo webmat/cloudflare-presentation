@@ -132,7 +132,7 @@ Your cert<br>
 
 Cloudflare app
 
-  - Add Google Webmaster tools
+  - Add [Google Webmaster tools](https://www.google.com/webmasters/tools/home?hl=en)
   - [Cf apps](https://www.cloudflare.com/cloudflare-apps?z=rsrlabs.com)
   - [Go to Websites / rsrlabs.com's Apps]
 
@@ -198,8 +198,9 @@ Setting it up
 Gripes
 
   - site navigation can be confusing
+  - ex: I didn't think you could do hostname redirects, but you can with page rules
   - DNS saves on Ajax, not form submit
-  - Missing: host redirect, DNSimple's ALIAS record
+  - Missing: DNSimple's ALIAS record
     - New site: scan existing records
     - Useful if trf ex site
     - Annoying when setting up new site (some cleanup to do, can't cancel)
