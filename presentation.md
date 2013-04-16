@@ -136,7 +136,7 @@ App for Google Analytics
   - Never forget tracking code in new templates again
   - Enabled on any subdomain
   - Including external sites
-  - help.rsrlabs.com
+  - [help.rsrlabs.com](http://help.rsrlabs.com)
       - Be careful with that
 
 Lots of apps
@@ -156,13 +156,14 @@ Analytics
   - Views vs Hits vs Bandwidth
   - Show threat control
 
-WAF
+WAF<br>
+![WAF](waf.png)
 
   - Mitigates security problems like recent Rails vulnerabilities
   - known problems like SQLi, path traversal, etc
   - Blocks the noise of the internet
 
-Railgun
+Railgun<br>
 ![railgun](railgun.png)
 
   - 99.6% compression of dynamic pages
