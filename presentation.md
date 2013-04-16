@@ -153,10 +153,13 @@ Cloudflare requests
   - Let's inspect web requests. direct vs cloudflare
   - [cf](http://www.rsrlabs.com/headers)
   - [direct](http://direct.rsrlabs.com/headers)
+  - IP_CFCOUNTRY
+  - scheme (for Flexible SSL)
+
 
 Analytics
 
-  - [Visit Dashboards]
+  - [Visit Dashboards](https://www.cloudflare.com/analytics)
   - Regular vs Crawlers vs Threats
   - Views vs Hits vs Bandwidth
   - Show threat control
@@ -170,6 +173,8 @@ WAF<br>
 
 Always Online<br>
 ![always on](cf-lol.png)
+
+  ...
 
 Railgun<br>
 ![railgun](railgun.png)
