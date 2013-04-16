@@ -4,16 +4,19 @@ Cloudflare
     - [login to WMT](https://www.google.com/webmasters/tools/home)
 
 
-What is Cloudflare?<br>
-<span class="cloud off"><img src="cf-off.png"/></span>
+What is Cloudflare?
 
     ### They make the web faster and safer
 
     - Started out as a security service
-    - They put themselves in front of your services
+    - They put themselves in front of your web services
     - Once that was done, they realized they could do much more
-    - ...
-    - At its simplest: DNS for your online service
+
+What is Cloudflare?<br>
+<span class="cloud off"><img src="cf-off.png"/></span>
+
+    - Start at the beginning
+    - At its simplest: DNS service
 
 What is Cloudflare?<br>
 <span class="cloud on"><img src="cf-on.png"/></span>
@@ -45,13 +48,13 @@ What can they do?
 
 Security
 
-    - SSL
-    - WAF (protection against known vulnerabilities)
-    - DoS protection
+    - Make SSL easy
+    - WAF
+    - DoS protection (denial of service)
     - Email obfuscation
     - server side exclude
     - Captcha (for suspect visitors)
-    - Hotlink protection
+    - Image hotlinking protection
 
 Speed optimizations
 
@@ -61,11 +64,10 @@ Speed optimizations
     - Railgun (will come back to it)
 
 Traffic analytics
-<!-- <br>
-![analytics](analytics.png)-->
 
     - Real traffic vs crawlers vs attackers
-    - download detailed logs
+    - Page views, all hits, bandwidth
+    - download their logs
 
 Other smart stuff
 
@@ -91,6 +93,7 @@ I'm serious
 
 <span class="cloud on"><img src="cf-on.png"/></span> in action
 
+  Let's look at Cloudflare in action
 
 Geolocation<br>
 ![Country Header](country-header.png)
@@ -103,6 +106,7 @@ Caching
   - Clear browser cache
   - Observe the network requests
   - Rocket Loader hasn't kicked in yet, traffic too low
+  - [Show complex Rails action for home page]
 
 Forced caching
 
@@ -163,6 +167,9 @@ WAF<br>
   - Mitigates security problems like recent Rails vulnerabilities
   - known problems like SQLi, path traversal, etc
   - Blocks the noise of the internet
+
+Always Online<br>
+![always on](cf-lol.png)
 
 Railgun<br>
 ![railgun](railgun.png)
