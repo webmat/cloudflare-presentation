@@ -6,8 +6,8 @@ Cloudflare
     - [login to WMT](https://www.google.com/webmasters/tools/home)
 
 
-What is Cloudflare?
-<p><span class="cloud off"><img src="cf-off.png"/></span></p>
+What is Cloudflare?<br>
+<span class="cloud off"><img src="cf-off.png"/></span>
 
     - Started out as a security service
     - They put themselves in front of your services
@@ -15,8 +15,8 @@ What is Cloudflare?
     - ...
     - At its simplest: DNS for your online service
 
-What is Cloudflare?
-<p><span class="cloud on"><img src="cf-on.png"/></span></p>
+What is Cloudflare?<br>
+<span class="cloud on"><img src="cf-on.png"/></span>
 
     - When you "enable Cloudflare" the magic starts
       - Speed optimizations
@@ -33,8 +33,7 @@ Reverse proxy
 
 Per hostname
 
-<pre>
-<span class="cloud on"><img src="cf-on.png"/></span> www.mysite.com
+<pre><span class="cloud on"><img src="cf-on.png"/></span> www.mysite.com
 <span class="cloud off"><img src="cf-off.png"/></span> sub.mysite.com</pre>
 
     All features can be enabled for www
@@ -84,9 +83,9 @@ How expensive?<br>
 
 I'm serious
 
-<pre><li>Pro: 20$, then +5$ (ssl)</li>
-<li>Biz: 200$ (cust ssl)</li>
-<li>Ent: Call us (3000$+) (logs)</li></pre>
+  <pre><li>Pro: 20$, then +5$ (ssl)</li>
+  <li>Biz: 200$ (cust ssl)</li>
+  <li>Ent: Call us (3000$+) (logs)</li></pre>
 
 Serious uses
 
@@ -121,8 +120,8 @@ Flexible SSL
   - Super easy to set up
   - [Go to https version of the site]
 
-Or your cert
-![ev cert](gh.png)
+Or your cert<br>
+![ev cert](ssl-ev.png)
 
     Not self-signed, though
 
