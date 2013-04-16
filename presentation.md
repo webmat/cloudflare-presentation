@@ -3,8 +3,13 @@ Cloudflare
     Make the web faster
 
 What is Cloudflare?
+<div class="centered">![cf-off.png](cf-off.png)</div>
 
-    - At its simplest: DNS for your service
+    - At its simplest: DNS for your online service
+
+What is Cloudflare?
+<div class="centered">![cf-on.png](cf-on.png)</div>
+
     - When you "enable Cloudflare" the magic starts
       - Speed optimizations
       - Security
@@ -14,28 +19,51 @@ What is Cloudflare?
 How it works:
 Reverse proxy
 
-    All traffic goes through them.
-    Lets them do a bunch of stuff for you, while you keep your backend simple.
-    But let's not get ahead of ourselves.
+    - All traffic goes through them.
+    - Lets them do a bunch of stuff for you, while you keep your backend simple.
+    - let's not get ahead of ourselves.
 
 Per hostname
 
 <pre><img src="cf-on.png"/> www.mysite.com
 <img src="cf-off.png"/> sub.mysite.com</pre>
 
-    All features enabled for www
+    All features can be enabled for www
     Only used as a DNS service for sub
 
 What can they do?
 
-  - Security: SSL, WAF, DDoS protection, Email obfuscation, server side exclude,
-    Captcha, Hotlink protection
-  - Speed optimizations: CDN, Web Content Optimization, SPDY, Railgun
-  - Traffic analytics: real vs bots vs attackers, download detailed logs
-  - Other smart stuff: Always On, Geolocation header, Cloudflare apps, IPV6 support
+Security
+
+    - SSL
+    - WAF
+    - DoS protection
+    - Email obfuscation
+    - server side exclude
+    - Captcha
+    - Hotlink protection
+
+Speed optimizations
+
+    - CDN
+    - Web Content Optimization (rocket l, img optim, gzip)
+    - SPDY (http replacement)
+    - Railgun
+
+Traffic analytics
+
+    - Real traffic vs crawlers vs attackers
+    - download detailed logs
+
+Other smart stuff
+
+    - Always On
+    - Geolocation header
+    - Cloudflare apps
+    - IPV6 support
 
 How expensive?<br>
-<pre><p style="text-align:center">0$+<p></pre>
+<pre><p class="center">0$+<p></pre>
 
   - DNS
   - Speed: CDN, some WCO (Rocket Loader)
@@ -45,9 +73,9 @@ How expensive?<br>
 
 I'm serious
 
-<pre><li>Pro: 20$, then +5$</li>
-<li>Biz: 200$</li>
-<li>Ent: Call us (3000$+)</li></pre>
+<pre><li>Pro: 20$, then +5$ (ssl)</li>
+<li>Biz: 200$ (cust ssl)</li>
+<li>Ent: Call us (3000$+) (logs)</li></pre>
 
 Serious uses
 
@@ -56,57 +84,122 @@ Serious uses
 Geolocation<br>
 ![Country Header](country-header.png)
 
-  Geolocation is IP based and give you the country of the originating request
+  Geolocation is IP based and gives you the country of the originating request
 
 Cloudflare in action
 
-  Open www.rsrlabs.com and direct.rsrlabs.com
-  Observe the network requests
-  Notice:
+  - Open www.rsrlabs.com and direct.rsrlabs.com
+  - Observe the network requests
+  - Notice:
     - cached requests
     - optimized assets
-    - SPDY
+    - SPDY?
+
+Force caching
+
+  - despite what your backend says about HTTP caching
+  - helps mitigate conf problems, sudden popularity, dos, etc
 
 Flexible SSL
 
-  Cheapest paid plan 20$
-  SSL between visitor and Cloudflare
-  HTTP between Cloudflare and your server
-  Solves first-mile security problems
-    E.g. Firesheep
-  Super easy to set up
-  [Go to https version of the site]
+  - Cheapest paid plan 20$
+  - SSL between visitor and Cloudflare
+  - HTTP between Cloudflare and your server
+  - Solves first-mile security problems
+      - E.g. Firesheep
+  - Super easy to set up
+  - [Go to https version of the site]
+
+Or your cert
+![ev cert](gh.png)
+
+    Not self-signed, though
 
 Cloudflare app
 
-  Add [Google Webmaster tools](https://www.google.com/webmasters/tools/home)<br>
-  [My Websites](https://www.cloudflare.com/my-websites)<br>
-  [Go to Websites / rsrlabs.com's Apps]
+  - Add [Google Webmaster tools](https://www.google.com/webmasters/tools/home)
+  - [My Websites](https://www.cloudflare.com/my-websites)
+  - [Go to Websites / rsrlabs.com's Apps]
 
 App for Google Analytics
 
-  Never forget tracking code in new templates again
-  Enabled on any subdomain
+  - Never forget tracking code in new templates again
+  - Enabled on any subdomain
+  - Including external sites
+  - help.rsrlabs.com
+      - Be careful with that
+
+Lots of apps
+
+  [List](https://www.cloudflare.com/cloudflare-apps?z=rsrlabs.com)
 
 Cloudflare requests
 
-  Let's inspect web requests. direct vs cloudflare
-  [Inspect](http://www.rsrlabs.com/inspect)
+  - Let's inspect web requests. direct vs cloudflare
+  - [cf](http://www.rsrlabs.com/inspect)
+  - [direct](http://direct.rsrlabs.com/inspect)
 
 Analytics
 
-  [Analytics](https://www.cloudflare.com/analytics)
-  Regular vs Crawlers vs Threats
-  Views vs Hits vs Bandwidth
-  Show threat control
+  - [Analytics](https://www.cloudflare.com/analytics)
+  - Regular vs Crawlers vs Threats
+  - Views vs Hits vs Bandwidth
+  - Show threat control
 
-WAF?
+WAF
 
+  - Mitigates security problems like recent Rails vulnerabilities
+  - known problems like SQLi, path traversal, etc
+  - Blocks the noise of the internet
 
+Railgun
+![railgun](railgun.png)
 
+  - 99.6% compression of dynamic pages
+  - Facebook feed, NY Times home page
+  - agent local to you, comm their int network to get only diff of page
+  - often fits in 1 TCP packet
+  - Business acct or Cf opt partner
 
 Setting it up
 
-  Nothing to do for DNS only
-  Restore original IP if Cloudflare enabled (optional), since it's a reverse proxy
+  - DNS only: point your registrar there
+  - Restore original IP if Cloudflare enabled (optional), since it's a reverse proxy
+  - Apache module or small nginx snippet
+
+Not for everyone
+
+  - Cf has outages
+  - if too reliant on those niceties, turning Cf off during their outages can prove disastrous
+  - if your clients CNAME to you (cf off)
+  - All ur traffic are belong to them (cf on)
+
+Gripes
+
+  - DNS saves on Ajax, not form submit
+  - Missing: DNSimple's ALIAS record, Zerigo's host redirect.
+  - When entering new site, try to scan existing records. Useful if trf ex site. Annoying when setting up new site (some cleanup to do)
+
+Future
+
+  - load balancing
+
+Try it!
+
+  - free SL is awesome
+  - give enormous power & flexibility to startups moving at breakneck speed
+  - so easy that it'll save you time & money for simplest sites: side projects, blog, microsites
+
+?
+
+ - Show around dashboard?
+
+webmat<br>
+<pre><p class="center">(gmail, twitter, github)<p></pre>
+
+  - Consultant: Rails & DevOps
+  - Scaling, infra automation, best practices, coaching & implementation, rescue.
+
+DevOps?
+<pre><p class="center">devopsmtl.com<p></pre>
 
