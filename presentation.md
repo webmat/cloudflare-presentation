@@ -31,7 +31,7 @@ What can they do?
   - Security: SSL, WAF, DDoS protection, Email obfuscation, server side exclude,
     Captcha, Hotlink protection
   - Speed optimizations: CDN, Web Content Optimization, SPDY, Railgun
-  - Traffic analytics: real vs bots vs attackers, detailed logs
+  - Traffic analytics: real vs bots vs attackers, download detailed logs
   - Other smart stuff: Always On, Geolocation header, Cloudflare apps, IPV6 support
 
 How expensive?<br>
@@ -58,8 +58,49 @@ Geolocation<br>
 
   Geolocation is IP based and give you the country of the originating request
 
+Cloudflare in action
 
+  Open www.rsrlabs.com and direct.rsrlabs.com
+  Observe the network requests
+  Notice:
+    - cached requests
+    - optimized assets
+    - SPDY
 
+Flexible SSL
+
+  Cheapest paid plan 20$
+  SSL between visitor and Cloudflare
+  HTTP between Cloudflare and your server
+  Solves first-mile security problems
+    E.g. Firesheep
+  Super easy to set up
+  [Go to https version of the site]
+
+Cloudflare app
+
+  Add [Google Webmaster tools](https://www.google.com/webmasters/tools/home)<br>
+  [My Websites](https://www.cloudflare.com/my-websites)<br>
+  [Go to Websites / rsrlabs.com's Apps]
+
+App for Google Analytics
+
+  Never forget tracking code in new templates again
+  Enabled on any subdomain
+
+Cloudflare requests
+
+  Let's inspect web requests. direct vs cloudflare
+  [Inspect](http://www.rsrlabs.com/inspect)
+
+Analytics
+
+  [Analytics](https://www.cloudflare.com/analytics)
+  Regular vs Crawlers vs Threats
+  Views vs Hits vs Bandwidth
+  Show threat control
+
+WAF?
 
 
 
