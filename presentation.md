@@ -1,14 +1,22 @@
 Cloudflare
 
-    Make the web faster
+    ### They make the web faster and safer
+
+    - [login to Cf](https://www.cloudflare.com/login)
+    - [login to WMT](https://www.google.com/webmasters/tools/home)
+
 
 What is Cloudflare?
-<div class="centered">![cf-off.png](cf-off.png)</div>
+<p><span class="cloud off"><img src="cf-off.png"/></span></p>
 
+    - Started out as a security service
+    - They put themselves in front of your services
+    - Once that was done, they realized they could do much more
+    - ...
     - At its simplest: DNS for your online service
 
 What is Cloudflare?
-<div class="centered">![cf-on.png](cf-on.png)</div>
+<p><span class="cloud on"><img src="cf-on.png"/></span></p>
 
     - When you "enable Cloudflare" the magic starts
       - Speed optimizations
@@ -25,13 +33,16 @@ Reverse proxy
 
 Per hostname
 
-<pre><img src="cf-on.png"/> www.mysite.com
-<img src="cf-off.png"/> sub.mysite.com</pre>
+<pre>
+<span class="cloud on"><img src="cf-on.png"/></span> www.mysite.com
+<span class="cloud off"><img src="cf-off.png"/></span> sub.mysite.com</pre>
 
     All features can be enabled for www
     Only used as a DNS service for sub
 
 What can they do?
+
+  ...
 
 Security
 

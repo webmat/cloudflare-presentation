@@ -183,3 +183,34 @@ a{
 	font-family: Monaco, monospace;
 	padding: 0 40px;
 }
+
+/* Custom */
+
+.slide .center {
+  text-align: center;
+}
+
+span.cloud{
+  display: inline-block;
+  background: white;
+  font-size: 12px;
+}
+
+span.cloud.on {
+  padding: 35px 21px 35px 21px;
+  border-radius: 46px;
+  /* -webkit-border-radius: 49px; */
+  /* -moz-border-radius: 49px; */
+}
+
+span.cloud.off {
+  padding: 30px 21px 30px 21px;
+  border-radius: 46px;
+  /* -webkit-border-radius: 44px; */
+  /* -moz-border-radius: 44px; */
+}
+
+span.cloud img {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
