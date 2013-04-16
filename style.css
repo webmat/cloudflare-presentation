@@ -194,6 +194,7 @@ span.cloud{
   display: inline-block;
   background: white;
   font-size: 12px;
+  vertical-align: middle;
 }
 
 span.cloud.on {

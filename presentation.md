@@ -1,13 +1,13 @@
 Cloudflare
 
-    ### They make the web faster and safer
-
     - [login to Cf](https://www.cloudflare.com/login)
     - [login to WMT](https://www.google.com/webmasters/tools/home)
 
 
 What is Cloudflare?<br>
 <span class="cloud off"><img src="cf-off.png"/></span>
+
+    ### They make the web faster and safer
 
     - Started out as a security service
     - They put themselves in front of your services
@@ -19,12 +19,12 @@ What is Cloudflare?<br>
 <span class="cloud on"><img src="cf-on.png"/></span>
 
     - When you "enable Cloudflare" the magic starts
-      - Speed optimizations
       - Security
+      - Speed optimizations
       - Downtime mitigation
       - Cloudflare apps
 
-How it works:
+How it works:<br>
 Reverse proxy
 
     - All traffic goes through them.
@@ -36,31 +36,33 @@ Per hostname
 <pre><span class="cloud on"><img src="cf-on.png"/></span> www.mysite.com
 <span class="cloud off"><img src="cf-off.png"/></span> sub.mysite.com</pre>
 
-    All features can be enabled for www
-    Only used as a DNS service for sub
+    - All features can be enabled for www
+    - Only used as a DNS service for sub
 
 What can they do?
 
-  ...
+    Let's dig into what they can do
 
 Security
 
     - SSL
-    - WAF
+    - WAF (protection against known vulnerabilities)
     - DoS protection
     - Email obfuscation
     - server side exclude
-    - Captcha
+    - Captcha (for suspect visitors)
     - Hotlink protection
 
 Speed optimizations
 
     - CDN
-    - Web Content Optimization (rocket l, img optim, gzip)
+    - Web Content Optimization (Rocket L, img optim, gzip)
     - SPDY (http replacement)
-    - Railgun
+    - Railgun (will come back to it)
 
 Traffic analytics
+<!-- <br>
+![analytics](analytics.png)-->
 
     - Real traffic vs crawlers vs attackers
     - download detailed logs
@@ -73,85 +75,84 @@ Other smart stuff
     - IPV6 support
 
 How expensive?<br>
-<pre><p class="center">0$+<p></pre>
+<pre><p class="center">0$ (and more)<p></pre>
 
   - DNS
   - Speed: CDN, some WCO (Rocket Loader)
   - Security: basic threat protection
-  - Analytics: last 30 days, starting yesterday
-  - Smart stuff: Always On, Geolocation header, Cloudflare apps
+  - Analytics: yesterday and before
+  - Smart stuff: Always On (7 days), Geolocation header, Cloudflare apps
 
 I'm serious
 
   <pre><li>Pro: 20$, then +5$ (ssl)</li>
   <li>Biz: 200$ (cust ssl)</li>
-  <li>Ent: Call us (3000$+) (logs)</li></pre>
+  <li>Ent: "Call us" (3000$+) (logs)</li></pre>
 
-Serious uses
+<span class="cloud on"><img src="cf-on.png"/></span> in action
 
-  Let's talk about some of the interesting things
 
 Geolocation<br>
 ![Country Header](country-header.png)
 
   Geolocation is IP based and gives you the country of the originating request
 
-Cloudflare in action
+Caching
 
-  - Open www.rsrlabs.com and direct.rsrlabs.com
+  - Show [www](www.rsrlabs.com) and [direct](direct.rsrlabs.com)
+  - Clear browser cache
   - Observe the network requests
-  - Notice:
-    - cached requests
-    - optimized assets
-    - SPDY?
+  - Rocket Loader hasn't kicked in yet, traffic too low
 
-Force caching
+Forced caching
 
   - despite what your backend says about HTTP caching
-  - helps mitigate conf problems, sudden popularity, dos, etc
+  - helps mitigate conf problems, sudden popularity, DoS, etc
+  - [show conf](https://www.cloudflare.com/page-rules?z=rsrlabs.com)
 
 Flexible SSL
 
   - Cheapest paid plan 20$
   - SSL between visitor and Cloudflare
   - HTTP between Cloudflare and your server
-  - Solves first-mile security problems
-      - E.g. Firesheep
-  - Super easy to set up
   - [Go to https version of the site]
+  - Solves first-mile security problems
+    - E.g. Firesheep
+  - Super easy to set up
+  - Can be set per url with page rules
 
-Or your cert<br>
+Your cert<br>
 ![ev cert](ssl-ev.png)
 
     Not self-signed, though
 
 Cloudflare app
 
-  - Add [Google Webmaster tools](https://www.google.com/webmasters/tools/home)
-  - [My Websites](https://www.cloudflare.com/my-websites)
+  - Add Google Webmaster tools
+  - [Cf apps](https://www.cloudflare.com/cloudflare-apps?z=rsrlabs.com)
   - [Go to Websites / rsrlabs.com's Apps]
 
 App for Google Analytics
 
   - Never forget tracking code in new templates again
-  - Enabled on any subdomain
+  - Enabled on any subdomain (main, blog, microsites, landing pages)
   - Including external sites
   - [help.rsrlabs.com](http://help.rsrlabs.com)
       - Be careful with that
 
 Lots of apps
 
-  [List](https://www.cloudflare.com/cloudflare-apps?z=rsrlabs.com)
+  Scroll down the [List](https://www.cloudflare.com/cloudflare-apps?z=rsrlabs.com)
 
 Cloudflare requests
 
   - Let's inspect web requests. direct vs cloudflare
-  - [cf](http://www.rsrlabs.com/inspect)
-  - [direct](http://direct.rsrlabs.com/inspect)
+  - [cf](http://www.rsrlabs.com/headers)
+  - [direct](http://direct.rsrlabs.com/headers)
 
 Analytics
 
-  - [Analytics](https://www.cloudflare.com/analytics)
+  - [Visit Dashboards]
   - Regular vs Crawlers vs Threats
   - Views vs Hits vs Bandwidth
   - Show threat control
@@ -168,7 +169,9 @@ Railgun<br>
 
   - 99.6% compression of dynamic pages
   - Facebook feed, NY Times home page
-  - agent local to you, comm their int network to get only diff of page
+  - agent local to you
+  - comm their internal network (CDN)
+  - ships diff of page
   - often fits in 1 TCP packet
   - Business acct or Cf opt partner
 
@@ -178,7 +181,7 @@ Setting it up
   - Restore original IP if Cloudflare enabled (optional), since it's a reverse proxy
   - Apache module or small nginx snippet
 
-Not for everyone
+<span class="cloud off"><img src="cf-off.png"/></span> Not for everyone
 
   - Cf has outages
   - if too reliant on those niceties, turning Cf off during their outages can prove disastrous
@@ -187,9 +190,12 @@ Not for everyone
 
 Gripes
 
+  - site navigation can be confusing
   - DNS saves on Ajax, not form submit
-  - Missing: DNSimple's ALIAS record, Zerigo's host redirect.
-  - When entering new site, try to scan existing records. Useful if trf ex site. Annoying when setting up new site (some cleanup to do)
+  - Missing: host redirect, DNSimple's ALIAS record
+    - New site: scan existing records
+    - Useful if trf ex site
+    - Annoying when setting up new site (some cleanup to do, can't cancel)
 
 Future
 
@@ -199,18 +205,25 @@ Try it!
 
   - free SL is awesome
   - give enormous power & flexibility to startups moving at breakneck speed
-  - so easy that it'll save you time & money for simplest sites: side projects, blog, microsites
+  - so easy: saves time & money even for simplest sites: side projects, blog, microsites
 
 ?
 
  - Show around dashboard?
 
 webmat<br>
-<pre><p class="center">(gmail, twitter, github)<p></pre>
+(gmail, twitter, github)
 
   - Consultant: Rails & DevOps
-  - Scaling, infra automation, best practices, coaching & implementation, rescue.
+  - Hard stuff
+  - scaling
+  - big migrations
+  - infra automation
+  - custom monitoring
+  - coaching or implementation
+  - rescue projects
 
-DevOps?
-<pre><p class="center">devopsmtl.com<p></pre>
+DevOps?<br>
+devopsmtl.com
 
+  [devopsmtl](http://devopsmtl.com)
