@@ -2,6 +2,9 @@ Cloudflare
 
     - [login to Cf](https://www.cloudflare.com/login)
     - [login to WMT](https://www.google.com/webmasters/tools/home)
+    - Open complex controller<br>
+
+      `e /Users/mat/work/vulnerable_app/app/controllers/pages_controller.rb`
 
 
 What is Cloudflare?
