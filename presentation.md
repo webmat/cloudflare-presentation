@@ -77,7 +77,6 @@ Other smart stuff
     - Always On
     - Geolocation header
     - Cloudflare apps
-    - IPV6 support
 
 How expensive?<br>
 <pre><p class="center">0$ (and more)<p></pre>
@@ -86,7 +85,7 @@ How expensive?<br>
   - Speed: CDN, some WCO (Rocket Loader)
   - Security: basic threat protection
   - Analytics: yesterday and before
-  - Smart stuff: Always On (7 days), Geolocation header, Cloudflare apps
+  - Smart stuff
 
 I'm serious
 
@@ -131,7 +130,7 @@ Flexible SSL
 Your cert<br>
 ![ev cert](ssl-ev.png)
 
-    Not self-signed, though
+    Except self-signed
 
 Cloudflare app
 
