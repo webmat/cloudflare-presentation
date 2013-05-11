@@ -169,48 +169,26 @@ Analytics
 WAF<br>
 ![WAF](waf.png)
 
-  - Mitigates security problems like recent Rails vulnerabilities
+  - Mitigates security problems like vulnerabilities in your web framework
   - known problems like SQLi, path traversal, etc
-  - Blocks the noise of the internet
 
 Always Online<br>
 ![always on](cf-lol.png)
 
   ...
 
-Railgun<br>
-![railgun](railgun.png)
-
-  - 99.6% compression of dynamic pages
-  - Facebook feed, NY Times home page
-  - agent local to you
-  - comm their internal network (CDN)
-  - ships diff of page
-  - often fits in 1 TCP packet
-  - Business acct or Cf opt partner
-
-Setting it up
-
-  - DNS only: point your registrar there
-  - Restore original IP if Cloudflare enabled (optional), since it's a reverse proxy
-  - Apache module or small nginx snippet
-
 <span class="cloud off"><img src="cf-off.png"/></span> Not for everyone
 
   - Cf has outages
-  - if too reliant on those niceties, turning Cf off during their outages can prove disastrous
+  - if too reliant on Cf, turning it off during their outages can prove disastrous
   - if your clients CNAME to you (cf off)
   - All ur traffic are belong to them (cf on)
 
 Gripes
 
   - site navigation can be confusing
-  - ex: I didn't think you could do hostname redirects, but you can with page rules
   - DNS saves on Ajax, not form submit
   - Missing: DNSimple's ALIAS record
-    - New site: scan existing records
-    - Useful if trf ex site
-    - Annoying when setting up new site (some cleanup to do, can't cancel)
 
 Future
 
@@ -230,13 +208,9 @@ webmat<br>
 (gmail, twitter, github)
 
   - Consultant: Rails & DevOps
-  - Hard stuff
-  - scaling
   - big migrations
   - infra automation
   - custom monitoring
-  - coaching or implementation
-  - rescue projects
 
 DevOps?<br>
 devopsmtl.com
